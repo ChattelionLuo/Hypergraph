@@ -1,0 +1,4 @@
+add_cus_dep( 'tex', 'aux', 0, 'makeexternaldocument' );
+sub makeexternaldocument {
+    return system( "pdflatex -interaction=nonstopmode \"$_[0]\"" );
+}

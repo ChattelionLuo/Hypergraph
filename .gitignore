@@ -1,0 +1,30 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local environments and tooling
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Browser profiles may contain cookies/session data.
+.browser_profiles/
+
+# Generated daily/runtime artifacts
+data/daily/
+website/data/
+
+# Generated model outputs and visualizations
+training_results/
+visualizations_single_pre/
+
+# Duplicate large intermediate crawler artifacts not used by the pipeline
+sofascore_crawler/data/match/final_match_player_information*.jsonl
+sofascore_crawler/data/match/final_match_player_information*.csv
+
+# Temporary OS/editor files
+.DS_Store
+Thumbs.db

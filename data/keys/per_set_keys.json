@@ -1,0 +1,23 @@
+[
+  "player1_Games_Max games in a row",
+  "player1_Miscellaneous_Tiebreaks",
+  "player1_Points_Max points in a row",
+  "player1_Points_Receiver points won",
+  "player1_Points_Service points won",
+  "player1_Return_Break points converted",
+  "player1_Return_Return games played",
+  "player1_Service_Aces",
+  "player1_Service_Double faults",
+  "player1_Service_Service games played",
+
+  "player2_Games_Max games in a row",
+  "player2_Miscellaneous_Tiebreaks",
+  "player2_Points_Max points in a row",
+  "player2_Points_Receiver points won",
+  "player2_Points_Service points won",
+  "player2_Return_Break points converted",
+  "player2_Return_Return games played",
+  "player2_Service_Aces",
+  "player2_Service_Double faults",
+  "player2_Service_Service games played"
+]

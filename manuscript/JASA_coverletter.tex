@@ -1,0 +1,318 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,epsfig,amssymb,amsfonts,amsthm,epsfig,verbatim}
+\usepackage{color,graphicx,lscape,longtable}
+\usepackage{natbib}
+
+\usepackage{geometry}
+\geometry{left=1.0in,right=1.0in,top=1in,bottom=1in}
+\renewcommand{\baselinestretch}{1.0}
+
+\newcommand{\indep}{\;\, \rule[0em]{.03em}{.67em} \hspace{-.25em}
+\rule[0em]{.65em}{.03em} \hspace{-.25em}\rule[0em]{.03em}{.67em}\;\,}
+\newcommand{\Appendix}{\def\thesection{Appendix~\Alph{section}}\def\thesubsection{A.\arabic{subsection}}}
+\newcommand{\cp}{\stackrel{\mathcal{P}}{\rightarrow}}
+\newcommand{\cl}{\stackrel{\mathcal{D}}{\rightarrow}}
+\newcommand{\condind}{\perp\hspace{-1em}\perp}
+\newcommand{\mystrut}{\vphantom{\int_0^1}}
+\newcommand{\p}{\stackrel{p}{\rightarrow}}
+\renewcommand{\d}{\stackrel{d}{\rightarrow}}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Th}{\underline{\bf Theorem}}
+\newtheorem{Mth}{Main Theorem}
+\newtheorem{Res}{\underline{\bf Result}}
+\newtheorem{Def}{Definition}
+\newtheorem{Rem}{\underline{\bf Remark}}
+\newtheorem{Qes}{Question}
+\newtheorem{Aim}{Aim}
+\newtheorem{Pro}{Proposition}
+\newtheorem{Lem}{\underline{\bf Lemma}}
+\newtheorem{Cor}{\underline{\bf Corollary}}
+\newtheorem{Ex}{Example}
+\newtheorem{Eq}{Equation}
+
+\def\bse{\begin{eqnarray*}}
+\def\ese{\end{eqnarray*}}
+\def\be{\begin{eqnarray}}
+\def\ee{\end{eqnarray}}
+\def\bsq{\begin{equation*}}
+\def\esq{\end{equation*}}
+\def\bq{\begin{equation}}
+\def\eq{\end{equation}}
+\def\th{^{th}}
+\def\var{\hbox{var}}
+\def\cov{\hbox{cov}}
+\def\corr{\hbox{corr}}
+\def\trace{\hbox{trace}}
+\def\wh{\widehat}
+\def\wt{\widetilde}
+\def\eff{_{\rm eff}}
+\def\sub{{\rm sub}}
+\def\cat{{\rm cat}}
+\def\th{^{th}}
+\def\my{\mathcal Y}
+\def\eLL{\mathcal L}
+\def\mR{\mathbb{R}}
+\def\n{\nonumber}
+\def\bias{\mbox{bias}}
+\def\vecl{\mbox{vecl}}
+\def\AIC{\mbox{AIC}}
+\def\BIC{\mbox{BIC}}
+\def\MSE{\mbox{MSE}}
+\def\rank{\mbox{rank}}
+\def\cov{\mbox{cov}}
+\def\corr{\mbox{corr}}
+\def\vec{\mbox{vec}}
+\def\argmin{\mbox{argmin}}
+\def\argmax{\mbox{argmax}}
+\def\diag{\mbox{diag}}
+\def\tr{\mbox{trace}}
+%\def\span{\mbox{span}}
+\def\sir{{\mbox{\tiny SIR}}}
+\def\save{{\mbox{\tiny SAVE}}}
+\def\phd{{\mbox{\tiny PHD}}}
+\def\cume{{\mbox{\tiny CUME}}}
+\def\cuve{{\mbox{\tiny CUVE}}}
+\def\cuhd{{\mbox{\tiny CUHD}}}
+\def\cudr{{\mbox{\tiny CUDR}}}
+\def\dr{{\mbox{\tiny DR}}}
+\def\sumi{\sum_{i=1}^n}
+\def\sumj{\sum_{j=1}^n}
+\def\trans{^{\rm T}}
+\def\hDash{\bot\!\!\!\bot}
+\def\calS{\mbox{ $\mathcal{S}$}}
+\def\ba{{\boldsymbol\alpha}}
+\def\ha{\widehat{\ba}}
+\def\bb{{\boldsymbol \beta}}
+\def\bdelta{{\boldsymbol \delta}}
+\def\bDelta{{\boldsymbol \Delta}}
+\def\bt{{\boldsymbol\theta}}
+\def\bz{{\boldsymbol \zeta}}
+\def\hb{\widehat{\bb}}
+\def\bg{{\boldsymbol\gamma}}
+\def\he{\widehat{\varepsilon}}
+\def\bOmega{{\boldsymbol\Omega}}
+\def\cs{\calS_{Y\mid\x}}
+\def\cms{\calS_{E(Y\mid\x)}}
+\def\defby{\stackrel{\mbox{\textrm{\tiny def}}}{=}}
+\def\0{{\bf 0}}
+\def\A{{\bf A}}
+\def\a{{\bf a}}
+\def\B{{\bf B}}
+\def\I{{\bf I}}
+\def\c{{\bf c}}
+\def\D{{\bf D}}
+\def\V{{\bf V}}
+\def\O{{\bf O}}
+\def\g{{\bf g}}
+\def\r{{\bf r}}
+\def\f{{\bf f}}
+\def\h{{\bf h}}
+\def\b{{\bf b}}
+\def\bS{{\bf S}}
+\def\bs{{\bf s}}
+\def\BB{\mbox{ $\mathcal{B}$}}
+\def\N{\mbox{ $\mathcal{N}$}}
+\def\K{{\bf K}}
+\def\t{{\bf t}}
+\def\e{{\bf e}}
+\def\T{{\bf T}}
+\def\M{{\bf M}}
+\def\bP{{\bf P}}
+\def\bQ{{\bf Q}}
+\def\bV{{\bf V}}
+\def\hQ{{\widehat \bQ}}
+\def\U{{\bf U}}
+\def\s{{\bf s}}
+\def\u{{\bf u}}
+\def\v{{\bf v}}
+\def\W{{\bf W}}
+\def\bO{{\bf O}}
+\def\w{{\bf w}}
+\def\X{{\bf X}}
+\def\x{{\bf x}}
+\def\J{{\bf J}}
+\def\tx{{\widetilde \x}}
+\def\Y{{\bf Y}}
+\def\tY{{\widetilde Y}}
+\def\y{{\bf y}}
+\def\Z{{\bf Z}}
+\def\z{{\bf z}}
+\def\bL{{\bf L}}
+\def\Ybar{{\overline{Y}}}
+\def\xbar{{\overline{\x}}}
+\def\Wbar{{\overline{\W}}}
+\def\wbar{{\overline{\w}}}
+\def\bSig{{\bf \Sigma}}
+\def\bLam{{\bf \Lambda}}
+\def\diag{\hbox{diag}}
+\def\dfrac#1#2{{\displaystyle{#1\over#2}}}
+\def\VS{{\vskip 3mm\noindent}}
+\def\refhg{\hangindent=20pt\hangafter=1}
+\def\refmark{\par\vskip 2mm\noindent\refhg}
+\def\naive{\hbox{naive}}
+\def\itemitem{\par\indent \hangindent2\parindent \textindent}
+\def\dist{\hbox{dist}}
+\def\trace{\hbox{trace}}
+\def\refhg{\hangindent=20pt\hangafter=1}
+\def\refmark{\par\vskip 2mm\noindent\refhg}
+\def\Normal{\hbox{Normal}}
+\def\povr{\buildrel p\over\longrightarrow}
+\def\ccdot{{\bullet}}
+\def\bq{\begin{equation}}
+\def\eq{\end{equation}}
+\def\pr{\hbox{pr}}
+\def\wh{\widehat}
+\def\wt{\widetilde}
+\def\trans{^{\rm T}}
+\def\th{^{th}}
+\def\diag{\hbox{diag}}
+\def\log{\hbox{log}}
+\def\bias{\hbox{bias}}
+\def\Siuu{\boldSigma_{i,uu}}
+\def\squarebox#1{\hbox to #1{\hfill\vbox to #1{\vfill}}}
+\def\bpi{{\boldsymbol \pi}}
+\def\bx{{\bf x}}
+\def\vec{\mathrm{vec}}
+\def\mA{\mathcal{A}}
+\def\mB{\mathcal{B}}
+\def\mC{\mathcal{C}}
+%\def\mc{\it{c}}
+\def\mH{\mathcal{H}}
+\def\my{\mathcal Y}
+\def\dfrac#1#2{{\displaystyle{#1\over#2}}}
+\def\VS{{\vskip 3mm\noindent}}
+\def\refhg{\hangindent=20pt\hangafter=1}
+\def\refmark{\par\vskip 2mm\noindent\refhg}
+\def\itemitem{\par\indent \hangindent2\parindent \textindent}
+\def\var{\hbox{var}}
+\def\cov{\hbox{cov}}
+\def\corr{\hbox{corr}}
+\def\trace{\hbox{trace}}
+\def\refhg{\hangindent=20pt\hangafter=1}
+\def\Normal{\hbox{Normal}}
+\def\povr{\buildrel p\over\longrightarrow}
+\def\dovr{\buildrel d\over\longrightarrow}
+\def\ccdot{{\bullet}}
+\def\bse{\begin{eqnarray*}}
+\def\ese{\end{eqnarray*}}
+\def\be{\begin{eqnarray}}
+\def\ee{\end{eqnarray}}
+\def\bsq{\begin{equation*}}
+\def\esq{\end{equation*}}
+\def\bq{\begin{equation}}
+\def\eq{\end{equation}}
+\def\pr{\hbox{pr}}
+\def\wh{\widehat}
+\def\wt{\widetilde}
+\def\diag{\hbox{diag}}
+\def\log{\hbox{log}}
+\def\bias{\hbox{bias}}
+\def\Siuu{\boldSigma_{i,uu}}
+\def\whT{\widehat{\Theta}}
+\def\diag{\hbox{diag}}
+\def\trans{^{\rm T}}
+\def\th{^{th}}
+\def\logit{{\mbox{logit}}}
+\def\boxit#1{\vbox{\hrule\hbox{\vrule\kern6pt\vbox{\kern6pt#1\kern6pt}\kern6pt\vrule}\hrule}}
+\def\macomment#1{\vskip 2mm\boxit{\vskip 2mm{\color{red}\bf#1} {\color{blue}\bf -- MA\vskip 2mm}}\vskip 2mm}
+\def\zhucomment#1{\vskip 2mm\boxit{\vskip 2mm{\color{blue}\bf#1}
+    {\color{red}\bf -- ZHU\vskip 2mm}}\vskip 2mm}
+\def\rjccomment#1{\vskip 2mm\boxit{\vskip 2mm{\color{black}\bf#1} {\color{black}\bf -- RJC\vskip 2mm}}\vskip 2mm}
+
+\def\AISM{{\it Annals of the Institute of Statistical mathematics}}
+\def\AJE{{\it American Journal of Epidemiology}}
+\def\ANNALS{{\it Annals of Statistics}}
+\def\ANNALSM{{\it Annals of Mathematical Statistics}}
+\def\BIOINF{{\it Bioinformatics}}
+\def\BIOK{{\it Biometrika}}
+\def\BMCS{{\it Biometrics}}
+\def\COMMS{{\it Communications in Statistics, Theory \& Methods}}
+\def\CSDA{{\it Computational Statistics \& Data Analysis}}
+\def\ECOC{{\it Econometrica}}
+\def\JABES{{\it Journal of Agricultural, Biological and Environmental Statistics}}
+\def\JAMA{{\it Journal of the American Medical Association}}
+\def\JASA{{\it Journal of the American Statistical Association}}
+\def\JCB{{\it Journal of Computational Biology}}
+\def\JCGS{{\it Journal of Computational and Graphical Statistics}}
+\def\JMA{{\it Journal of Multivariate Analysis}}
+\def\JNUTR{{\it Journal of Nutrition}}
+\def\JQT{{\it Journal of Quality Technology}}
+\def\JRSSB{{\it Journal of the Royal Statistical Society, Series B}}
+\def\JSPI{{\it Journal of Statistical Planning \& Inference}}
+\def\LETTERS{{\it Statistics and Probability Letters}}
+\def\SCAN{{\it Scandinavian Journal of Statistics}}
+\def\SINICA{{\it Statistica Sinica}}
+\def\STATMED{{\it Statistics in Medicine}}
+\def\STATSCI{{\it Statistical Science}}
+\def\TECH{{\it Technometrics}}
+
+%\topmargin -1.6cm
+%\oddsidemargin 0.1cm
+%\textwidth 16.4cm
+%\textheight 23cm
+
+\begin{document}
+%\thispagestyle{empty} \vskip 5mm
+%\baselineskip 17pt
+%\renewcommand {\thepage}{}
+%\include{titre}
+%\pagenumbering{arabic}
+
+
+%\noindent Jian HUANG  \newline
+%Department of Statistics and Actuarial Science \newline
+%University of Iowa \newline
+%E-mail: jian-huang@uiowa.edu \newline
+%\vspace{0.6cm}
+
+	\noindent
+% Professors  J. Fan,  A. Qu and  D. Small \\
+Editors of the {\em Journal of the American Statistical Association} 
+
+
+\noindent
+April 21, 2026
+%\date{\today}
+
+\bigskip
+\bigskip
+\bigskip
+
+\noindent
+Dear Editors: \newline
+
+
+I would like to submit our manuscript
+``Deep Ranking with Heterogeneous Effects"
+by my coauthors  Yuanhang Luo, Shuxing Fang, Ruijian Han, and myself,
+to the \textit{Journal of the American Statistical Association} for possible publication.\\
+
+This submission presents new developments in statistical ranking models by integrating dynamic covariate information and leveraging neural network architectures to approximate contextual effects. It addresses a key limitation of classical latent-score ranking models, which fail to distinguish objects’ intrinsic scores from contextual effects that are typically nonlinear and can dominate observed outcomes.
+
+Specifically, we introduce a semiparametric ranking framework in which the log-score of each object is modeled as the sum of a utility parameter and a nonparametric covariate effect. Within this framework, we establish model identifiability under mild regularity and connectivity conditions. For estimation, we approximate the covariate effect using a neural network and estimate the parameters via maximum likelihood. Under random design assumptions, we show that the resulting estimator exists with high probability and derive non-asymptotic error bounds that achieve minimax optimality for both the parametric and nonparametric components. We also validate our results on synthetic data and apply the proposed model to a recent ATP tennis dataset, where it reveals interesting dynamic patterns among several current top players. \\
+
+
+I am happy to serve as the contact author during the review process and I can
+be reached at my email at \textit{yiming.xu@uky.edu}.
+
+ 
+
+Thank you very much for your kind consideration. \\
+\vspace{0.8cm}
+
+\noindent Yours sincerely,\\
+
+\vspace{1.3cm}
+\noindent Yiming Xu\\
+Department of Mathematics\\
+University of Kentucky \\
+Email: yiming.xu@uky.edu
+
+
+
+
+
+\end{document}
