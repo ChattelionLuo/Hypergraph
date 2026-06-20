@@ -352,7 +352,7 @@ main,
 }
 
 .tennis-card {
-  --card-image: linear-gradient(135deg, rgba(13, 13, 13, 0.2), rgba(13, 13, 13, 0.88)), url("assets/timeline_deep_grid_2x3.png");
+  --card-image: linear-gradient(135deg, rgba(13, 13, 13, 0.18), rgba(13, 13, 13, 0.82)), url("assets/atp_teaser.png");
 }
 
 .jockey-card {
@@ -364,7 +364,7 @@ main,
 }
 
 .research-card {
-  --card-image: linear-gradient(135deg, rgba(13, 13, 13, 0.35), rgba(13, 13, 13, 0.9)), url("assets/test_win_rate_radar_style2.png");
+  --card-image: linear-gradient(135deg, rgba(13, 13, 13, 0.22), rgba(13, 13, 13, 0.84)), url("assets/hypergraph_transparent.png");
 }
 
 .subscribe-card {
