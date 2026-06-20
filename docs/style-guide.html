@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Internal Style Guide | Hypergraph</title>
+  <meta name="description" content="Internal typography and text editing guide for Project Hypergraph.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,650&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-drawer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="brand" href="index.html" aria-label="Hypergraph home">
+      <span class="brand-wordmark"><small>Project</small><strong>Hypergraph</strong></span>
+    </a>
+    <nav class="topnav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="tennis.html">Tennis</a>
+      <a href="platform.html">Platform</a>
+      <a href="research.html">Research</a>
+    </nav>
+  </header>
+
+  <div class="drawer-backdrop" data-close-drawer></div>
+  <aside class="site-drawer" id="site-drawer" aria-label="Navigation drawer">
+    <div class="drawer-head">
+      <span class="brand-wordmark"><small>Project</small><strong>Hypergraph</strong></span>
+      <button type="button" data-close-drawer aria-label="Close navigation">Close</button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="tennis.html">Tennis market</a>
+    <a href="platform.html">Platform</a>
+    <a href="research.html">Research</a>
+    <a href="style-guide.html">Style guide</a>
+  </aside>
+
+  <main class="style-guide">
+    <section class="guide-hero">
+      <p class="eyebrow">Internal guide</p>
+      <h1>Text styles for Project Hypergraph.</h1>
+      <p class="hero-lede">
+        Use this page as a copy-and-paste reference when editing headers,
+        paragraphs, cards, buttons, and prediction-page text.
+      </p>
+    </section>
+
+    <section class="guide-section">
+      <div class="guide-heading">
+        <p class="eyebrow">Quick rules</p>
+        <h2>How to edit text safely.</h2>
+      </div>
+      <div class="guide-grid two">
+        <article class="guide-card">
+          <h3>1. Edit only the words first.</h3>
+          <p>Most text is inside an HTML tag. Keep the opening and closing tags unchanged unless you want to change the style.</p>
+          <pre><code>&lt;h2&gt;Ranking science&lt;/h2&gt;</code></pre>
+        </article>
+        <article class="guide-card">
+          <h3>2. Change style by changing the tag or class.</h3>
+          <p>The word after <code>class=</code> applies a reusable style from <code>styles.css</code>.</p>
+          <pre><code>&lt;p class="eyebrow"&gt;Research&lt;/p&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <div class="guide-heading">
+        <p class="eyebrow">Fonts</p>
+        <h2>The website uses two fonts.</h2>
+      </div>
+      <div class="guide-grid two">
+        <article class="guide-card">
+          <span class="guide-label">Newsreader</span>
+          <h2>Editorial headlines</h2>
+          <p>Used for major headings, large card titles, the drawer menu, and the Hypergraph wordmark.</p>
+          <pre><code>&lt;h1&gt;Main page headline&lt;/h1&gt;
+&lt;h2&gt;Section headline&lt;/h2&gt;</code></pre>
+        </article>
+        <article class="guide-card">
+          <span class="guide-label">Inter</span>
+          <p class="guide-body-demo">Clean interface text for paragraphs, navigation, labels, controls, statistics, and notes.</p>
+          <pre><code>&lt;p&gt;Normal paragraph text goes here.&lt;/p&gt;
+&lt;nav class="topnav"&gt;...&lt;/nav&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <div class="guide-heading">
+        <p class="eyebrow">Headings</p>
+        <h2>Use large headings sparingly.</h2>
+      </div>
+      <div class="guide-stack">
+        <article class="guide-sample">
+          <div>
+            <span class="guide-label">h1</span>
+            <h1>Main hero headline.</h1>
+            <p>Use once near the top of a page.</p>
+          </div>
+          <pre><code>&lt;h1&gt;Main hero headline.&lt;/h1&gt;</code></pre>
+        </article>
+        <article class="guide-sample">
+          <div>
+            <span class="guide-label">h2</span>
+            <h2>Section headline.</h2>
+            <p>Use for major sections and subpage cards.</p>
+          </div>
+          <pre><code>&lt;h2&gt;Section headline.&lt;/h2&gt;</code></pre>
+        </article>
+        <article class="guide-sample">
+          <div>
+            <span class="guide-label">h3</span>
+            <h3>Small card title.</h3>
+            <p>Use inside cards, model summaries, and compact content blocks.</p>
+          </div>
+          <pre><code>&lt;h3&gt;Small card title.&lt;/h3&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <div class="guide-heading">
+        <p class="eyebrow">Text classes</p>
+        <h2>Reusable paragraph styles.</h2>
+      </div>
+      <div class="guide-grid three">
+        <article class="guide-card">
+          <p class="eyebrow">Eyebrow label</p>
+          <p>Small uppercase label above a headline.</p>
+          <pre><code>&lt;p class="eyebrow"&gt;Research&lt;/p&gt;</code></pre>
+        </article>
+        <article class="guide-card">
+          <p class="hero-lede">Hero lede text introduces a page with a larger paragraph.</p>
+          <pre><code>&lt;p class="hero-lede"&gt;Intro text...&lt;/p&gt;</code></pre>
+        </article>
+        <article class="guide-card">
+          <p class="match-note">Match note text is smaller and muted for short explanations.</p>
+          <pre><code>&lt;p class="match-note"&gt;Short note...&lt;/p&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <div class="guide-heading">
+        <p class="eyebrow">Homepage blocks</p>
+        <h2>Market card text pattern.</h2>
+      </div>
+      <div class="guide-grid two">
+        <a class="market-card tennis-card guide-market-demo" href="tennis.html">
+          <span class="card-kicker">Live demo</span>
+          <h2>Tennis predictive intelligence</h2>
+          <p>ATP probability book with model-by-model outcome forecasts.</p>
+          <span class="card-action">Open market &rarr;</span>
+        </a>
+        <article class="guide-card">
+          <h3>Command</h3>
+          <p>Change the card wording inside <code>h2</code>, <code>p</code>, and <code>span</code>. Keep the classes.</p>
+          <pre><code>&lt;a class="market-card tennis-card" href="tennis.html"&gt;
+  &lt;span class="card-kicker"&gt;Live demo&lt;/span&gt;
+  &lt;h2&gt;Tennis predictive intelligence&lt;/h2&gt;
+  &lt;p&gt;ATP probability book...&lt;/p&gt;
+  &lt;span class="card-action"&gt;Open market &amp;rarr;&lt;/span&gt;
+&lt;/a&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <div class="guide-heading">
+        <p class="eyebrow">Section blocks</p>
+        <h2>Use these structures on content pages.</h2>
+      </div>
+      <div class="guide-grid two">
+        <article class="subsection-card">
+          <h2>Subsection card.</h2>
+          <p>Good for platform pages, research summaries, and product notes.</p>
+        </article>
+        <article class="guide-card">
+          <pre><code>&lt;section class="subsection-card"&gt;
+  &lt;h2&gt;Subsection card.&lt;/h2&gt;
+  &lt;p&gt;Short professional copy.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <div class="guide-heading">
+        <p class="eyebrow">Prediction page</p>
+        <h2>Model and match text styles.</h2>
+      </div>
+      <div class="guide-grid two">
+        <article class="match-card">
+          <div class="match-meta">ATP demo / hard court</div>
+          <div class="players">
+            <span class="winner">Player A</span>
+            <span>Player B</span>
+          </div>
+          <p class="match-note">Use this for small explanatory text below a match card.</p>
+        </article>
+        <article class="model-card" style="--model-color: var(--gold);">
+          <header>
+            <div>
+              <h3>DHR</h3>
+              <p>Compact description for a model card.</p>
+            </div>
+            <span class="rank-badge">Rank 1</span>
+          </header>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <div class="guide-heading">
+        <p class="eyebrow">Color tokens</p>
+        <h2>Named colors in <code>styles.css</code>.</h2>
+      </div>
+      <div class="guide-swatches">
+        <span style="--swatch: var(--black);">--black</span>
+        <span style="--swatch: var(--paper);">--paper</span>
+        <span style="--swatch: var(--white);">--white</span>
+        <span style="--swatch: var(--gold);">--gold</span>
+        <span style="--swatch: var(--green);">--green</span>
+        <span style="--swatch: var(--blue);">--blue</span>
+        <span style="--swatch: var(--red);">--red</span>
+      </div>
+      <pre><code>Use colors in CSS like this:
+color: var(--gold);
+background: var(--black);</code></pre>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Internal Hypergraph style guide</span>
+    <span>Open directly at <code>docs/style-guide.html</code>.</span>
+  </footer>
+  <script src="site.js"></script>
+</body>
+</html>
