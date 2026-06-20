@@ -6,6 +6,7 @@ from datetime import date
 from pathlib import Path
 
 from .crawler import prepare_daily_crawl, run_match_information_crawler
+from .demo import DemoConfig, build_demo_predictions
 from .jsonl_utils import extract_player_links, read_jsonl, write_jsonl
 from .predict import predict_file
 from .site import build_static_site
@@ -104,6 +105,17 @@ def build_parser() -> argparse.ArgumentParser:
     site = subparsers.add_parser("build-site", help="Build static website")
     site.add_argument("--predictions", type=Path, required=True)
     site.add_argument("--output-dir", type=Path)
+
+    demo = subparsers.add_parser("build-demo-data", help="Build website demo prediction feed")
+    demo.add_argument("--feature-name", default="MI_PP_TS_dim66")
+    demo.add_argument("--training-run", type=Path)
+    demo.add_argument("--processed-path", type=Path)
+    demo.add_argument("--raw-match-path", type=Path)
+    demo.add_argument("--output", type=Path, default=Path("docs/data/demo_predictions.json"))
+    demo.add_argument("--start-date", type=parse_date, default=date(2024, 6, 1))
+    demo.add_argument("--end-date", type=parse_date, default=date(2025, 9, 1))
+    demo.add_argument("--without-deep", action="store_true")
+    demo.add_argument("--max-matches", type=int)
 
     train = subparsers.add_parser("train-models", help="Run or print model training")
     train.add_argument("--feature-name", default="MI_PP_TS_dim66")
@@ -218,6 +230,30 @@ def main() -> None:
             output_dir=args.output_dir,
         )
         print(json.dumps(status, indent=2, ensure_ascii=False))
+    elif args.command == "build-demo-data":
+        payload = build_demo_predictions(
+            DemoConfig(
+                feature_name=args.feature_name,
+                training_run=args.training_run,
+                processed_path=args.processed_path,
+                raw_match_path=args.raw_match_path,
+                output_path=args.output,
+                start_date=args.start_date,
+                end_date=args.end_date,
+                include_deep=not args.without_deep,
+                max_matches=args.max_matches,
+            )
+        )
+        print(
+            json.dumps(
+                {
+                    "output": str(args.output),
+                    "matches": payload["summary"]["matches"],
+                    "models": list(payload["summary"]["metrics"].keys()),
+                },
+                indent=2,
+            )
+        )
     elif args.command == "train-models":
         payload = run_training(
             TrainingConfig(

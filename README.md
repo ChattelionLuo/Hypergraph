@@ -133,3 +133,26 @@ python run_daily_pipeline.py diagnose-live-access --proxy-server http://host:por
   and PlusDC probabilities work without Torch.
 - `website\index.html` reads `website\data\latest_predictions.json` and can be
   served with any static file server.
+
+## Flagship website
+
+The GitHub Pages-ready flagship site lives in `docs/`:
+
+- `docs/index.html` — presentation layer
+- `docs/styles.css` and `docs/app.js` — website styling/interactions
+- `docs/data/demo_predictions.json` — separated model prediction feed
+- `docs/assets/` — research figures used by the site
+
+Generate the demo feed from the held-out ATP test period:
+
+```powershell
+py -3.9 run_daily_pipeline.py build-demo-data --output .\docs\data\demo_predictions.json
+```
+
+Serve locally:
+
+```powershell
+python -m http.server 8000 --directory docs
+```
+
+For GitHub Pages, set the repository Pages source to `main` / `docs`.

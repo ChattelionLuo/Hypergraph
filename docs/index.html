@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hypergraph | ATP Match Lab</title>
+  <meta name="description" content="Flagship demo for Deep Heterogeneous Ranking on ATP tennis match prediction.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,650&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Hypergraph home">
+        <span class="brand-mark">H</span>
+        <span>
+          <strong>Hypergraph</strong>
+          <small>ATP Match Lab</small>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#predictions">Predictions</a>
+        <a href="#models">Models</a>
+        <a href="#research">Research</a>
+        <a href="#evidence">Evidence</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Deep ranking for professional tennis</p>
+          <h1>Forecasting ATP match outcomes with dynamic hypergraph ranking.</h1>
+          <p class="hero-lede">
+            Hypergraph separates intrinsic player strength from nonlinear match context,
+            turning a decade of ATP data into probability forecasts that can be compared model by model.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#predictions">Explore demo predictions</a>
+            <a class="button secondary" href="#research">See methodology</a>
+          </div>
+        </div>
+        <aside class="hero-panel glass-card" aria-label="Demo summary">
+          <p class="panel-kicker">Held-out test season</p>
+          <div class="hero-stat">
+            <span id="hero-accuracy">--</span>
+            <small>DHR accuracy</small>
+          </div>
+          <div class="stat-grid">
+            <div>
+              <strong id="hero-matches">--</strong>
+              <span>matches</span>
+            </div>
+            <div>
+              <strong id="hero-players">--</strong>
+              <span>players</span>
+            </div>
+            <div>
+              <strong id="hero-brier">--</strong>
+              <span>DHR Brier</span>
+            </div>
+          </div>
+          <p id="hero-period" class="muted">Loading prediction feed...</p>
+        </aside>
+      </section>
+
+      <section class="section compact" id="models">
+        <div class="section-heading">
+          <p class="eyebrow">Model comparison</p>
+          <h2>One test season. Three ranking philosophies.</h2>
+          <p>
+            The demo uses the original rolling split: train through June 2023,
+            tune on the next year, and evaluate on the recent ATP test window.
+          </p>
+        </div>
+        <div id="model-cards" class="model-cards" aria-live="polite"></div>
+      </section>
+
+      <section class="section prediction-lab" id="predictions">
+        <div class="section-heading split">
+          <div>
+            <p class="eyebrow">Interactive prediction book</p>
+            <h2>Every match is an item. Every model gives a probability.</h2>
+          </div>
+          <p>
+            Search the held-out test matches, inspect probability bars, and compare
+            DHR against PlusDC and Bradley-Terry on the same fixture.
+          </p>
+        </div>
+
+        <div class="lab-controls glass-card">
+          <label>
+            Search player or tournament
+            <input id="search-input" type="search" placeholder="e.g. Sinner, Wimbledon, clay">
+          </label>
+          <label>
+            Surface
+            <select id="surface-filter">
+              <option value="all">All surfaces</option>
+            </select>
+          </label>
+          <label>
+            Sort by
+            <select id="sort-filter">
+              <option value="date-desc">Most recent</option>
+              <option value="dhr-confidence">DHR confidence</option>
+              <option value="dhr-probability">DHR probability for Player 1</option>
+              <option value="upsets">DHR surprises</option>
+            </select>
+          </label>
+        </div>
+
+        <div id="highlight-strip" class="highlight-strip"></div>
+        <div id="prediction-list" class="prediction-list" aria-live="polite"></div>
+      </section>
+
+      <section class="section insight-grid">
+        <article class="glass-card">
+          <p class="eyebrow">Monthly tracking</p>
+          <h2>Accuracy over the demo season</h2>
+          <div id="monthly-chart" class="monthly-chart"></div>
+        </article>
+        <article class="glass-card">
+          <p class="eyebrow">Feature design</p>
+          <h2>66 dimensions of match context</h2>
+          <div id="feature-groups" class="feature-groups"></div>
+          <p class="muted">
+            MI captures tournament setting, PP captures player profile, and TS captures
+            rolling technical form over the prior three months.
+          </p>
+        </article>
+      </section>
+
+      <section class="section research" id="research">
+        <div class="research-copy">
+          <p class="eyebrow">Research narrative</p>
+          <h2>From player strength to context-aware probability.</h2>
+          <p>
+            Classical Bradley-Terry models rank players with one intrinsic utility.
+            Hypergraph keeps that interpretability but adds an edge-dependent nonlinear
+            component, so surface, tournament level, recent serve-return form, and player
+            profile can change the matchup probability.
+          </p>
+          <div class="research-points">
+            <div><strong>21,385</strong><span>ATP singles matches</span></div>
+            <div><strong>389</strong><span>players in the study</span></div>
+            <div><strong>2016–2025</strong><span>SofaScore data window</span></div>
+          </div>
+        </div>
+        <div class="method-card glass-card">
+          <img src="assets/vis_transparent.png" alt="Hypergraph illustration">
+          <h3>Deep Heterogeneous Ranking</h3>
+          <p>
+            DHR models each comparison as a hyperedge with item utilities and heterogeneous,
+            nonlinear covariate effects. In tennis, the result is a probability engine that
+            benchmarks against BT and PlusDC on the same matches.
+          </p>
+        </div>
+      </section>
+
+      <section class="section evidence" id="evidence">
+        <div class="section-heading">
+          <p class="eyebrow">Evidence gallery</p>
+          <h2>Research charts behind the demo.</h2>
+        </div>
+        <div class="figure-grid">
+          <figure>
+            <img src="assets/test_win_rate_radar_style2.png" alt="Radar chart for test win rate">
+            <figcaption>Test win rate across feature combinations and models.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/test_brier_score_radar_style2.png" alt="Radar chart for Brier score">
+            <figcaption>Probability calibration through Brier score.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/timeline_deep_grid_2x3.png" alt="Player utility trajectories">
+            <figcaption>DHR player trajectory story across eras.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/yearly_bar_deep.png" alt="Yearly DHR player ranking bars">
+            <figcaption>Year-by-year shifts in elite ATP player strength.</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Hypergraph ATP Match Lab</span>
+      <span id="data-stamp">Loading data timestamp...</span>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
