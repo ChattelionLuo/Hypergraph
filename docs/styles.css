@@ -1023,7 +1023,7 @@ figcaption {
 
 .footer-links {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(22px, 4vw, 44px);
 }
 
@@ -1066,6 +1066,88 @@ figcaption {
 
 .footer-bottom span:first-child {
   margin-right: auto;
+}
+
+.footer-bottom a {
+  color: inherit;
+  transition: color 160ms ease;
+}
+
+.footer-bottom a:hover {
+  color: var(--gold-dark);
+}
+
+.math-card {
+  display: grid;
+  gap: 18px;
+  padding: clamp(28px, 4vw, 46px);
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.math-card p {
+  max-width: 820px;
+  margin: 0;
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.72;
+}
+
+.math-card mjx-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  padding: 4px 0;
+}
+
+.illustration-slot {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: rgba(255, 250, 242, 0.58);
+  background:
+    linear-gradient(90deg, rgba(255, 250, 242, 0.08) 1px, transparent 1px) 0 0 / 36px 36px,
+    linear-gradient(0deg, rgba(255, 250, 242, 0.08) 1px, transparent 1px) 0 0 / 36px 36px,
+    #171717;
+  border: 1px dashed rgba(255, 250, 242, 0.28);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.legal-page {
+  width: min(calc(100% - 96px), 920px);
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 92px) 0;
+}
+
+.legal-page section {
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+}
+
+.legal-page h2 {
+  font-size: clamp(26px, 3vw, 38px);
+}
+
+.legal-page p,
+.legal-page li {
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.legal-page ul {
+  padding-left: 20px;
+}
+
+.notice-card {
+  padding: 24px;
+  color: var(--black);
+  background: var(--white);
+  border-left: 4px solid var(--gold);
 }
 
 .subpage {
@@ -1318,6 +1400,7 @@ code {
   .feature-band,
   .subpage,
   .style-guide,
+  .legal-page,
   .footer-inner,
   .footer-bottom {
     width: min(calc(100% - 48px), 1180px);
@@ -1354,6 +1437,7 @@ code {
   .feature-band,
   .subpage,
   .style-guide,
+  .legal-page,
   .footer-inner,
   .footer-bottom {
     width: min(calc(100% - 32px), 1180px);
