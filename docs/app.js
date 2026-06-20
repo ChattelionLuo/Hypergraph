@@ -86,7 +86,7 @@ function metricRow(label, value, display) {
   return `
     <div class="metric-row">
       <span>${label}</span>
-      <span class="bar-track"><span class="bar-fill" style="--value:${Math.max(0, Math.min(1, value)) * 100}%"></span></span>
+      <span class="bar-track"><span class="bar-fill" style="width:${Math.max(0, Math.min(1, value)) * 100}%"></span></span>
       <span>${display}</span>
     </div>`;
 }
@@ -113,7 +113,7 @@ function modelProbabilityMarkup(match) {
             <span>${match.players.player1} ${pct(result.p_player1, 0)} / ${match.players.player2} ${pct(result.p_player2, 0)}</span>
           </div>
           <div class="prob-track" aria-label="${model} probability for ${pick}">
-            <span class="prob-fill" style="--prob:${pickProb * 100}%"></span>
+            <span class="prob-fill" style="width:${pickProb * 100}%"></span>
           </div>
         </div>
         <span class="prob-value">${pct(pickProb, 0)}</span>

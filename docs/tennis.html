@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hypergraph | Tennis Intelligence</title>
+  <meta name="description" content="Commercial-grade tennis prediction demo powered by Hypergraph.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,650&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-drawer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="brand" href="index.html" aria-label="Hypergraph home">
+      <span class="brand-mark">H</span>
+      <span>
+        <strong>Hypergraph</strong>
+        <small>Tennis Intelligence</small>
+      </span>
+    </a>
+    <nav class="topnav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="#match-book">Predictions</a>
+      <a href="platform.html">Platform</a>
+      <a href="research.html">Research</a>
+    </nav>
+  </header>
+
+  <div class="drawer-backdrop" data-close-drawer></div>
+  <aside class="site-drawer" id="site-drawer" aria-label="Navigation drawer">
+    <div class="drawer-head">
+      <strong>Hypergraph</strong>
+      <button type="button" data-close-drawer aria-label="Close navigation">Close</button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="tennis.html">Tennis market</a>
+    <a href="tennis.html#match-book">Prediction book</a>
+    <a href="tennis.html#benchmarks">Benchmarks</a>
+    <a href="platform.html">Platform</a>
+    <a href="research.html">Research</a>
+  </aside>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Flagship project</p>
+        <h1>Decision-grade forecasts for every tennis match.</h1>
+        <p class="hero-lede">
+          A compact prediction lab for ranking data: match probabilities, model
+          comparisons, and a clean path toward real-time deployment.
+        </p>
+      </div>
+      <div class="hero-metrics">
+        <article>
+          <span id="hero-accuracy">--</span>
+          <small>top model accuracy</small>
+        </article>
+        <article>
+          <span id="hero-matches">--</span>
+          <small>held-out matches</small>
+        </article>
+        <article>
+          <span id="hero-players">--</span>
+          <small>players covered</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-band">
+      <div>
+        <p class="eyebrow">What it does</p>
+        <h2>Turns ranking data into an investable-style signal.</h2>
+      </div>
+      <div class="brief-grid">
+        <article>
+          <strong>Probabilities</strong>
+          <span>Each model returns an event probability for the match outcome.</span>
+        </article>
+        <article>
+          <strong>Benchmarks</strong>
+          <span>Compare the flagship signal with established baselines.</span>
+        </article>
+        <article>
+          <strong>Deployment-ready</strong>
+          <span>Data and presentation are separated for future automation.</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section match-book" id="match-book">
+      <div class="section-heading">
+        <p class="eyebrow">Interactive prediction book</p>
+        <h2>Compare model calls match by match.</h2>
+        <p>Search the held-out ATP demo season. Bars now show the probability assigned to each model's selected winner.</p>
+      </div>
+
+      <div class="lab-controls">
+        <label>
+          Search
+          <input id="search-input" type="search" placeholder="Player, event, surface">
+        </label>
+        <label>
+          Surface
+          <select id="surface-filter">
+            <option value="all">All surfaces</option>
+          </select>
+        </label>
+        <label>
+          Sort
+          <select id="sort-filter">
+            <option value="date-desc">Most recent</option>
+            <option value="dhr-confidence">Highest DHR conviction</option>
+            <option value="dhr-probability">Highest DHR probability</option>
+            <option value="upsets">DHR misses first</option>
+          </select>
+        </label>
+      </div>
+
+      <div id="highlight-strip" class="highlight-strip"></div>
+      <div id="prediction-list" class="prediction-list" aria-live="polite"></div>
+    </section>
+
+    <section class="section benchmarks" id="benchmarks">
+      <div class="section-heading split">
+        <div>
+          <p class="eyebrow">Benchmarks</p>
+          <h2>Three views of the same market.</h2>
+        </div>
+        <p>Short, comparable scorecards. The technical detail stays in the research layer.</p>
+      </div>
+      <div id="model-cards" class="model-cards" aria-live="polite"></div>
+    </section>
+
+    <section class="section platform" id="platform">
+      <div class="platform-copy">
+        <p class="eyebrow">Future product architecture</p>
+        <h2>Built for more sports, more markets, more signals.</h2>
+      </div>
+      <div class="platform-grid">
+        <article>
+          <span>01</span>
+          <h3>Prediction API</h3>
+          <p>Clean JSON feeds for web, dashboards, and downstream products.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>Model operations</h3>
+          <p>Training and inference pipelines stay outside the website layer.</p>
+        </article>
+        <article class="asset-placeholder">
+          <span>03</span>
+          <h3>Visual asset slot</h3>
+          <p>Reserved for future product imagery, partner logos, or live-market graphics.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section research" id="research">
+      <div class="section-heading">
+        <p class="eyebrow">Research foundation</p>
+        <h2>Evidence without over-disclosure.</h2>
+        <p>Selected public-facing results from the ATP study. Deeper methodology can move to protected pages later.</p>
+      </div>
+      <div class="research-points">
+        <article><strong>21,385</strong><span>ATP singles matches</span></article>
+        <article><strong>389</strong><span>players in study</span></article>
+        <article><strong>2016-2025</strong><span>data window</span></article>
+      </div>
+      <div class="figure-grid">
+        <figure>
+          <img src="assets/test_win_rate_radar_style2.png" alt="Model win-rate comparison">
+          <figcaption>Out-of-sample win-rate benchmark.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/test_brier_score_radar_style2.png" alt="Probability calibration comparison">
+          <figcaption>Probability calibration benchmark.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Hypergraph</span>
+    <span id="data-stamp">Loading data feed...</span>
+  </footer>
+
+  <script src="site.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
