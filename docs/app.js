@@ -69,7 +69,6 @@ function renderModelCards(data) {
             <h3>${meta.title}</h3>
             <p>${meta.copy}</p>
           </div>
-          <span class="rank-badge">${model}</span>
         </header>
         <div class="metric-stack">
           ${metricRow("Accuracy", m.accuracy, pct(m.accuracy))}
@@ -150,6 +149,7 @@ function matchCard(match) {
 
 function renderHighlights(data) {
   const container = document.getElementById("highlight-strip");
+  if (!container) return;
   const highlights = data.highlights.slice(0, 3);
   container.innerHTML = highlights.map(match => {
     const result = match.models.DHR;
