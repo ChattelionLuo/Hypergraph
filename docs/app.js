@@ -108,10 +108,7 @@ function modelProbabilityMarkup(match) {
       <div class="forecast-row" style="--model-color:${MODEL_COLORS[model]}">
         <span class="model-name">${MODEL_COPY[model].short}</span>
         <div class="forecast-main">
-          <div class="forecast-pick">
-            <span>${pick}</span>
-            <span>${match.players.player1} ${pct(result.p_player1, 0)} / ${match.players.player2} ${pct(result.p_player2, 0)}</span>
-          </div>
+          <div class="forecast-pick"><span>${pick}</span></div>
           <div class="prob-track" aria-label="${model} probability for ${pick}">
             <span class="prob-fill" style="width:${pickProb * 100}%"></span>
           </div>
@@ -122,25 +119,34 @@ function modelProbabilityMarkup(match) {
   }).join("");
 }
 
+function matchDetailsMarkup(match) {
+  const rows = ["DHR", "PlusDC", "BT"].map(model => {
+    const result = match.models[model];
+    if (!result) return "";
+    return `<div class="detail-model"><strong>${MODEL_COPY[model].short}</strong><span>${match.players.player1} ${pct(result.p_player1, 0)} / ${match.players.player2} ${pct(result.p_player2, 0)}</span></div>`;
+  }).join("");
+  return `
+    <div class="match-details">
+      <div class="detail-meta">${match.date_label} / ${match.surface || "Surface n/a"} / ${match.round || "Tour match"}</div>
+      <div class="detail-meta">${match.tournament}<br>Actual: ${match.actual_winner}<br>Score ${match.score.label}</div>
+      ${rows}
+    </div>`;
+}
+
 function matchCard(match) {
-  const dhr = match.models.DHR;
   const p1Winner = match.actual_winner === match.players.player1;
-  const dhrPick = dhr ? selectedSide(dhr, match) : "";
-  const dhrPickProb = dhr ? selectedProbability(dhr) : 0;
   return `
     <article class="match-card">
-      <div class="match-topline">
-        <div>
-          <div class="match-meta">${match.date_label} / ${match.surface || "Surface n/a"} / ${match.round || "Tour match"}</div>
-          <div class="players">
-            <span class="${p1Winner ? "winner" : ""}">${match.players.player1}</span>
-            <span class="${!p1Winner ? "winner" : ""}">${match.players.player2}</span>
-          </div>
+      <div class="match-head">
+        <div class="match-date">${match.date_label}</div>
+        <div class="players">
+          <span class="${p1Winner ? "winner" : ""}">${match.players.player1}</span>
+          <span class="${!p1Winner ? "winner" : ""}">${match.players.player2}</span>
         </div>
-        <div class="match-meta">${match.tournament}<br>Actual: ${match.actual_winner}<br>Score ${match.score.label}</div>
+        <span class="details-toggle" title="Match details">&raquo;</span>
+        ${matchDetailsMarkup(match)}
       </div>
       <div class="model-probs">${modelProbabilityMarkup(match)}</div>
-      ${dhr ? `<p class="match-note">DHR call: ${dhrPick} / ${pct(dhrPickProb, 0)} probability</p>` : ""}
     </article>`;
 }
 

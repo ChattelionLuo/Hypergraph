@@ -916,6 +916,109 @@ select:focus {
   font-size: 13px;
 }
 
+/* minimal card face + hover-revealed details */
+.match-card { position: relative; }
+
+.match-head {
+  position: relative;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.match-date {
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.details-toggle {
+  position: absolute;
+  top: -2px;
+  right: 0;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1;
+  cursor: default;
+  user-select: none;
+  transition: color 140ms ease;
+}
+
+.details-toggle:hover { color: var(--gold-dark); }
+
+.match-details {
+  position: absolute;
+  inset: -22px;
+  z-index: 2;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--line);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.details-toggle:hover ~ .match-details,
+.match-details:hover {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.detail-meta {
+  color: var(--muted);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.detail-model {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--body);
+  font-size: 12.5px;
+}
+
+.detail-model strong { color: var(--black); }
+
+/* tennis page: low-profile overrides */
+.tennis-page .hero {
+  min-height: auto;
+  padding-top: clamp(48px, 6vw, 76px);
+  padding-bottom: clamp(48px, 6vw, 76px);
+}
+
+.tennis-page .hero h1 {
+  max-width: 620px;
+  font-size: clamp(32px, 4.2vw, 54px);
+}
+
+.tennis-page .hero-metrics article {
+  padding: 18px 22px;
+  box-shadow: none;
+}
+
+.tennis-page .hero-metrics span {
+  font-size: clamp(26px, 2.6vw, 38px);
+  letter-spacing: -0.05em;
+}
+
+.tennis-page .feature-band h2,
+.tennis-page .platform h2 {
+  max-width: 460px;
+  font-size: clamp(23px, 2.6vw, 34px);
+}
+
+.tennis-page .brief-grid article { min-height: 150px; }
+.tennis-page .platform-grid article { min-height: 200px; }
+
 /* ---------- tennis: benchmarks ---------- */
 
 .benchmarks { background: var(--paper-2); }
@@ -1639,7 +1742,6 @@ code {
   .section,
   .feature-band { padding: 54px 0; }
 
-  .match-topline,
   .forecast-row { grid-template-columns: 1fr; }
 
   .pub-card {
