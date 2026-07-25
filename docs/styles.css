@@ -270,7 +270,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 42px;
+  margin-bottom: 28px;
 }
 
 .drawer-head button {
@@ -290,13 +290,13 @@ main {
 
 .site-drawer a {
   display: block;
-  padding: 18px 0;
-  border-top: 1px solid rgba(13, 13, 13, 0.14);
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
   font-family: var(--serif);
-  font-size: clamp(27px, 7vw, 32px);
-  font-weight: 650;
-  line-height: 1.04;
-  letter-spacing: -0.04em;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
   transition: color 160ms ease, padding-left 160ms ease;
 }
 
@@ -1470,9 +1470,15 @@ code {
   inset: 0;
   z-index: 0;
   content: "";
-  background: url("assets/WolframPhysicsProject-0001-large.webp") no-repeat right -14% center / min(1150px, 88vw) auto;
+  background: url("assets/WolframPhysicsProject-0001-large.webp") no-repeat right -7% bottom -8% / min(620px, 68vw) auto;
   opacity: 0.12;
   pointer-events: none;
+}
+
+.pub-page {
+  width: min(calc(100% - 2 * var(--gutter)), 880px);
+  margin: 0 auto;
+  padding: var(--section-pad) 0;
 }
 
 .research-page .topbar,
