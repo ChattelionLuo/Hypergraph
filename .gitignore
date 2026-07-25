@@ -28,3 +28,6 @@ sofascore_crawler/data/match/final_match_player_information*.csv
 # Temporary OS/editor files
 .DS_Store
 Thumbs.db
+
+# Local design-QA screenshots
+.qa-shots/

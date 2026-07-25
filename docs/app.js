@@ -1,9 +1,9 @@
 const DATA_URL = "data/demo_predictions.json";
 
 const MODEL_COLORS = {
-  DHR: "#b7832d",
-  PlusDC: "#1f3d6d",
-  BT: "#2c6b57",
+  DHR: "#051c2c",
+  PlusDC: "#2251ff",
+  BT: "#9aa5b1",
 };
 
 const MODEL_COPY = {
