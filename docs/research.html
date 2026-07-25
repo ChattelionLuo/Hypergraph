@@ -85,7 +85,10 @@
           penalizes rapid variation across strongly connected vertices. This is the basic mechanism behind
           graph smoothing, spectral embeddings, semi-supervised learning, and regularized ranking.
         </p>
-        <div class="illustration-slot">Illustration slot: graph vertices, weighted edges, and Laplacian smoothing.</div>
+        <figure class="math-figure">
+          <img src="assets/research_graph.webp" alt="A weighted graph with a gold highlighted sub-cluster" loading="lazy">
+          <figcaption>A weighted graph: edge strength controls how much neighboring values may differ.</figcaption>
+        </figure>
       </section>
       <section id="hypergraphs" class="math-card">
         <div>
@@ -113,7 +116,10 @@
           The induced regularizer favors functions that vary smoothly within informative hyperedges, while still
           allowing sharp separation where the data support it.
         </p>
-        <div class="illustration-slot">Illustration slot: one hyperedge connecting multiple items and context nodes.</div>
+        <figure class="math-figure contain">
+          <img src="assets/vis_transparent.png" alt="A hypergraph with colored hyperedges connecting groups of vertices" loading="lazy">
+          <figcaption>A hypergraph: each colored hyperedge joins a group of vertices, not just a pair.</figcaption>
+        </figure>
       </section>
       <section id="learning" class="math-card">
         <div>
@@ -138,7 +144,10 @@
           neural/message-passing layers over \(H\). In both cases, the statistical goal is the same: borrow
           information across related observations while controlling variance, calibration, and out-of-sample risk.
         </p>
-        <div class="illustration-slot">Illustration slot: pipeline from relational observations to calibrated probabilities.</div>
+        <figure class="math-figure">
+          <img src="assets/research_learning.webp" alt="Training and held-out loss curves with early stopping marked" loading="lazy">
+          <figcaption>Structured risk minimization in practice: the held-out objective turns up long before the training objective settles.</figcaption>
+        </figure>
       </section>
       <section id="ranking" class="math-card">
         <div>
@@ -165,6 +174,10 @@
       <section id="demo" class="subsection-card">
         <h2>ATP demo study</h2>
         <p>21,385 matches, 389 players, and a held-out 2024-2025 test window. The demo highlights probability calibration and ranking performance without disclosing proprietary implementation details.</p>
+        <figure class="math-figure">
+          <img src="assets/yearly_bar_deep.webp" alt="Yearly average estimated player strengths with uncertainty" loading="lazy">
+          <figcaption>Estimated player strength by season: the model tracks the tour's changing of the guard, with uncertainty bands.</figcaption>
+        </figure>
       </section>
     </article>
   </main>
