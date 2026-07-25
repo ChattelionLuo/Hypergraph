@@ -4,19 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research | Hypergraph</title>
-  <meta name="description" content="Research summary for the Hypergraph ATP demo.">
+  <meta name="description" content="Publications and research behind the Hypergraph ranking engine.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,650&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
-  <script>
-    window.MathJax = {
-      tex: { inlineMath: [["\\(", "\\)"], ["$", "$"]], displayMath: [["\\[", "\\]"]] },
-      svg: { fontCache: "global" }
-    };
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
   <header class="topbar">
@@ -48,129 +41,64 @@
 
   <main class="subpage">
     <aside class="page-sidebar">
-      <a href="#summary">Summary</a>
-      <a href="#graphs">Graphs</a>
-      <a href="#hypergraphs">Hypergraphs</a>
-      <a href="#learning">Learning</a>
-      <a href="#ranking">Ranking</a>
-      <a href="#demo">Demo</a>
+      <a href="#publications">Publications</a>
+      <a href="#demo">ATP demo study</a>
     </aside>
     <article class="page-content">
-      <section id="summary">
+      <section class="research-hero">
         <p class="eyebrow">Research</p>
-        <h1>Graph and hypergraph learning for statistical ranking.</h1>
-        <p class="hero-lede">A mathematical introduction to the objects behind Hypergraph: graphs, hypergraphs, incidence structure, Laplacian regularization, and probabilistic ranking models on relational data.</p>
+        <h1>Ranking science, peer reviewed.</h1>
+        <p class="hero-lede">The Hypergraph engine is built on published statistical methodology — from Plackett&ndash;Luce asymptotics to deep semiparametric ranking models.</p>
       </section>
-      <section id="graphs" class="math-card">
-        <div>
-          <p class="eyebrow">Graphs</p>
-          <h2>Pairwise relations as operators.</h2>
+
+      <section id="publications">
+        <div class="section-heading">
+          <p class="eyebrow">Publications</p>
+          <h2>Selected papers.</h2>
         </div>
-        <p>
-          A weighted graph is \(G=(V,E,W)\), where \(V=\{1,\ldots,n\}\) is a finite vertex set,
-          \(E\subseteq V\times V\) is a set of pairwise relations, and \(W=(w_{ij})\) stores edge weights.
-          In ranking applications, a vertex may represent a player, asset, or item, while an edge records
-          observed comparison information.
-        </p>
-        <p>
-          The adjacency matrix \(A\) and degree matrix \(D=\mathrm{diag}(d_1,\ldots,d_n)\), with
-          \(d_i=\sum_j A_{ij}\), define the graph Laplacian
-          \[
-            L = D-A.
-          \]
-          For a signal \(f:V\to\mathbb{R}\), the quadratic form
-          \[
-            f^\top L f = \frac{1}{2}\sum_{i,j} A_{ij}(f_i-f_j)^2
-          \]
-          penalizes rapid variation across strongly connected vertices. This is the basic mechanism behind
-          graph smoothing, spectral embeddings, semi-supervised learning, and regularized ranking.
-        </p>
-        <figure class="math-figure">
-          <img src="assets/research_graph.webp" alt="A weighted graph with a gold highlighted sub-cluster" loading="lazy">
-          <figcaption>A weighted graph: edge strength controls how much neighboring values may differ.</figcaption>
-        </figure>
-      </section>
-      <section id="hypergraphs" class="math-card">
-        <div>
-          <p class="eyebrow">Hypergraphs</p>
-          <h2>Beyond pairwise edges.</h2>
+        <div class="pub-list">
+          <a class="pub-card" href="https://projecteuclid.org/journals/annals-of-statistics/volume-53/issue-5/A-unified-analysis-of-likelihood-based-estimators-in-the-PlackettLuce/10.1214/25-AOS2530.full" target="_blank" rel="noopener">
+            <img class="pub-thumb" src="assets/publications/pub_unified_pl.webp" alt="A unified analysis of likelihood-based estimators in the Plackett-Luce model" loading="lazy">
+            <div class="pub-info">
+              <h3>A unified analysis of likelihood-based estimators in the Plackett&ndash;Luce model</h3>
+              <p class="pub-authors">R. Han, Y. Xu</p>
+              <p class="pub-venue">The Annals of Statistics 53(5), 2025</p>
+              <span class="pub-link">projecteuclid.org &rarr;</span>
+            </div>
+          </a>
+
+          <a class="pub-card" href="https://academic.oup.com/jrsssb/article-abstract/88/1/221/8230325" target="_blank" rel="noopener">
+            <img class="pub-thumb" src="assets/publications/pub_dynamic_covariates.webp" alt="Statistical ranking with dynamic covariates" loading="lazy">
+            <div class="pub-info">
+              <h3>Statistical ranking with dynamic covariates</h3>
+              <p class="pub-authors">P. Dong, R. Han, B. Jiang, Y. Xu</p>
+              <p class="pub-venue">JRSS Series B 88(1), 221&ndash;238, 2026</p>
+              <span class="pub-link">academic.oup.com &rarr;</span>
+            </div>
+          </a>
+
+          <a class="pub-card" href="https://arxiv.org/abs/2604.16129" target="_blank" rel="noopener">
+            <img class="pub-thumb" src="assets/publications/pub_deep_ranking.webp" alt="Deep Ranking with Heterogeneous Effects" loading="lazy">
+            <div class="pub-info">
+              <h3>Deep ranking with heterogeneous effects</h3>
+              <p class="pub-authors">Y. Luo, S. Fang, R. Han, Y. Xu</p>
+              <p class="pub-venue">arXiv:2604.16129, 2026</p>
+              <span class="pub-link">arxiv.org &rarr;</span>
+            </div>
+          </a>
+
+          <a class="pub-card" href="https://arxiv.org/abs/2601.14727" target="_blank" rel="noopener">
+            <img class="pub-thumb" src="assets/publications/pub_bt_survey.webp" alt="Recent advances in the Bradley-Terry model" loading="lazy">
+            <div class="pub-info">
+              <h3>Recent advances in the Bradley&ndash;Terry model: theory, algorithms, and applications</h3>
+              <p class="pub-authors">S. Fang, R. Han, Y. Luo, Y. Xu</p>
+              <p class="pub-venue">arXiv:2601.14727, 2026</p>
+              <span class="pub-link">arxiv.org &rarr;</span>
+            </div>
+          </a>
         </div>
-        <p>
-          A hypergraph is \( \mathcal{H}=(V,\mathcal{E},\omega) \), where each hyperedge
-          \(e\in\mathcal{E}\) is a subset of vertices rather than a pair. The incidence matrix
-          \(H\in\{0,1\}^{|V|\times|\mathcal{E}|}\) is
-          \[
-            H(v,e)=\mathbf{1}\{v\in e\}.
-          \]
-          Hyperedges encode higher-order interactions: a match with contextual covariates, a race field,
-          a market basket, or a group event can be represented as one relational object rather than a collection
-          of independent pairwise edges.
-        </p>
-        <p>
-          With vertex degrees \(d(v)=\sum_{e}\omega(e)H(v,e)\) and hyperedge degrees
-          \(\delta(e)=\sum_v H(v,e)\), a normalized hypergraph Laplacian can be written as
-          \[
-            \Delta_{\mathcal{H}}
-            = I - D_v^{-1/2} H W_e D_e^{-1} H^\top D_v^{-1/2}.
-          \]
-          The induced regularizer favors functions that vary smoothly within informative hyperedges, while still
-          allowing sharp separation where the data support it.
-        </p>
-        <figure class="math-figure contain">
-          <img src="assets/vis_transparent.png" alt="A hypergraph with colored hyperedges connecting groups of vertices" loading="lazy">
-          <figcaption>A hypergraph: each colored hyperedge joins a group of vertices, not just a pair.</figcaption>
-        </figure>
       </section>
-      <section id="learning" class="math-card">
-        <div>
-          <p class="eyebrow">Statistical learning</p>
-          <h2>Prediction as structured risk minimization.</h2>
-        </div>
-        <p>
-          Let \(x_i\) be item-level or event-level covariates, and let \(s_\theta(i)\) denote a latent score
-          produced by a parametric model. A graph-regularized estimator solves a problem of the form
-          \[
-            \widehat{\theta}
-            \in \arg\min_{\theta}
-            \left\{
-              \frac{1}{m}\sum_{\ell=1}^{m}\ell\big(y_\ell, p_\theta(\ell)\big)
-              + \lambda\, s_\theta^\top L s_\theta
-            \right\},
-          \]
-          where the loss may be negative log-likelihood, Brier loss, or another proper scoring rule.
-        </p>
-        <p>
-          Hypergraph learning replaces \(L\) by a higher-order operator \(\Delta_{\mathcal{H}}\), or constructs
-          neural/message-passing layers over \(H\). In both cases, the statistical goal is the same: borrow
-          information across related observations while controlling variance, calibration, and out-of-sample risk.
-        </p>
-        <figure class="math-figure">
-          <img src="assets/research_learning.webp" alt="Training and held-out loss curves with early stopping marked" loading="lazy">
-          <figcaption>Structured risk minimization in practice: the held-out objective turns up long before the training objective settles.</figcaption>
-        </figure>
-      </section>
-      <section id="ranking" class="math-card">
-        <div>
-          <p class="eyebrow">Ranking models</p>
-          <h2>From latent scores to event probabilities.</h2>
-        </div>
-        <p>
-          Pairwise ranking starts from a latent strength difference. In a Bradley-Terry-style model,
-          \[
-            \mathbb{P}(i \succ j)
-            = \frac{\exp(s_i)}{\exp(s_i)+\exp(s_j)}
-            = \sigma(s_i-s_j).
-          \]
-          Modern ranking systems extend this idea by allowing scores to depend on context, time, covariates,
-          graph neighborhoods, and higher-order event structure.
-        </p>
-        <p>
-          The practical object published by Hypergraph is not a betting prescription. It is a calibrated
-          probability statement \(p_\theta(y=1\mid \mathcal{F}_t)\) conditional on the information set available
-          before an event. The public demo is designed for research communication, model comparison, and product
-          illustration; it is not gambling advice or a betting strategy.
-        </p>
-      </section>
+
       <section id="demo" class="subsection-card">
         <h2>ATP demo study</h2>
         <p>21,385 matches, 389 players, and a held-out 2024-2025 test window. The demo highlights probability calibration and ranking performance without disclosing proprietary implementation details.</p>

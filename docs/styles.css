@@ -15,9 +15,9 @@
   --muted: #777067;         /* tertiary text */
   --line: rgba(13, 13, 13, 0.13);
   --line-dark: rgba(255, 250, 242, 0.14);
-  --paper: #f4efe7;         /* cream page */
-  --paper-2: #ebe2d5;       /* deeper cream */
-  --white: #fffaf2;         /* card cream */
+  --paper: #ffffff;         /* light page */
+  --paper-2: #f5f4f1;       /* quiet section fill */
+  --white: #ffffff;         /* card */
   --gold: #b7832d;
   --gold-dark: #7c5518;
   --green: #2c6b57;
@@ -132,7 +132,7 @@ figcaption {
   gap: 16px;
   min-height: 72px;
   padding: 0 30px;
-  background: rgba(244, 239, 231, 0.92);
+  background: rgba(255, 255, 255, 0.92);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(16px);
 }
@@ -250,11 +250,10 @@ main {
   height: 100vh;
   padding: 32px;
   color: var(--black);
-  background: #fbf7ef;
+  background: var(--white);
   border-right: 1px solid var(--line);
   transform: translateX(-100%);
-  transition: transform 220ms ease;
-  box-shadow: 30px 0 80px rgba(0, 0, 0, 0.32);
+  transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
 .drawer-open .drawer-backdrop {
@@ -262,7 +261,10 @@ main {
   pointer-events: auto;
 }
 
-.drawer-open .site-drawer { transform: translateX(0); }
+.drawer-open .site-drawer {
+  transform: translateX(0);
+  box-shadow: 30px 0 80px rgba(0, 0, 0, 0.32);
+}
 
 .drawer-head {
   display: flex;
@@ -308,8 +310,8 @@ main {
 .site-footer {
   flex-shrink: 0;
   color: var(--body);
-  background: #fbf7ef;
-  border-top: 1px solid rgba(13, 13, 13, 0.1);
+  background: var(--white);
+  border-top: 1px solid var(--line);
 }
 
 .footer-inner {
@@ -608,7 +610,7 @@ main {
   gap: clamp(36px, 6vw, 94px);
   background:
     linear-gradient(90deg, rgba(13, 13, 13, 0.03) 1px, transparent 1px) 0 0 / 72px 72px,
-    radial-gradient(circle at 70% 20%, rgba(183, 131, 45, 0.16), transparent 32rem);
+    radial-gradient(circle at 70% 20%, rgba(183, 131, 45, 0.1), transparent 32rem);
 }
 
 /* hero metric cards: signature black / coal / gold trio */
@@ -720,7 +722,7 @@ select {
   height: 48px;
   padding: 0 14px;
   color: var(--ink);
-  background: #fbf7ef;
+  background: var(--white);
   border: 1px solid var(--line);
   border-radius: 0;
   font: inherit;
@@ -1248,7 +1250,7 @@ figure.light figcaption {
 .math-figure {
   margin: 0;
   overflow: hidden;
-  background: #fbf7ef;
+  background: #fafaf8;
   border: 1px solid var(--line);
 }
 
@@ -1330,7 +1332,7 @@ figure.light figcaption {
 .notice-card {
   padding: 24px;
   color: var(--black);
-  background: var(--white);
+  background: var(--paper-2);
   border-left: 4px solid var(--gold);
 }
 
@@ -1460,6 +1462,94 @@ code {
   font-weight: 900;
 }
 
+/* ---------- research page: artwork + publications ---------- */
+
+.research-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.research-hero::before {
+  position: absolute;
+  top: -12%;
+  right: -14%;
+  width: 72%;
+  height: 124%;
+  content: "";
+  background: url("assets/WolframPhysicsProject-0001-large.webp") right center / contain no-repeat;
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.research-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.pub-list {
+  display: grid;
+  gap: 18px;
+}
+
+.pub-card {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 26px;
+  align-items: start;
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.pub-card:hover {
+  border-color: rgba(183, 131, 45, 0.55);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-2px);
+}
+
+.pub-thumb {
+  display: block;
+  width: 132px;
+  margin-top: 4px;
+  border: 1px solid var(--line);
+}
+
+.pub-info h3 {
+  margin: 0 0 10px;
+  color: var(--black);
+  font-family: var(--serif);
+  font-size: clamp(20px, 2vw, 25px);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  transition: color 160ms ease;
+}
+
+.pub-card:hover .pub-info h3 { color: var(--gold-dark); }
+
+.pub-authors {
+  margin: 0 0 4px;
+  color: var(--body);
+  font-size: 14.5px;
+}
+
+.pub-venue {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.pub-link {
+  color: var(--gold-dark);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
 /* ---------- responsive ---------- */
 
 @media (max-width: 920px) {
@@ -1531,6 +1621,14 @@ code {
 
   .match-topline,
   .forecast-row { grid-template-columns: 1fr; }
+
+  .pub-card {
+    grid-template-columns: 92px 1fr;
+    gap: 16px;
+    padding: 18px;
+  }
+
+  .pub-thumb { width: 92px; }
 
   .forecast-row { gap: 6px; }
 
