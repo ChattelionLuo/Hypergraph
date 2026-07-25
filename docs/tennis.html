@@ -50,47 +50,14 @@
   <main id="top">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Flagship project</p>
+        <p class="eyebrow">ATP demo</p>
         <h1>Decision-grade forecasts for every tennis match.</h1>
-        <p class="hero-lede">
-          A compact prediction lab for ranking data: match probabilities, model
-          comparisons, and a clean path toward real-time deployment.
-        </p>
-      </div>
-      <div class="hero-metrics">
-        <article>
-          <span id="hero-accuracy">--</span>
-          <small>top model accuracy</small>
-        </article>
-        <article>
-          <span id="hero-matches">--</span>
-          <small>held-out matches</small>
-        </article>
-        <article>
-          <span id="hero-players">--</span>
-          <small>players covered</small>
-        </article>
-      </div>
-    </section>
-
-    <section class="feature-band">
-      <div>
-        <p class="eyebrow">What it does</p>
-        <h2>Turns ranking data into a calibrated probability signal.</h2>
-      </div>
-      <div class="brief-grid">
-        <article>
-          <strong>Probabilities</strong>
-          <span>Each model returns an event probability for the match outcome.</span>
-        </article>
-        <article>
-          <strong>Benchmarks</strong>
-          <span>Compare the flagship signal with established baselines.</span>
-        </article>
-        <article>
-          <strong>Deployment ready</strong>
-          <span>Data and presentation are separated for future automation.</span>
-        </article>
+        <p class="hero-lede">Held-out probabilities from three ranking models on the 2024-2025 season.</p>
+        <div class="hero-stats">
+          <span><strong id="hero-accuracy">--</strong> top model accuracy</span>
+          <span><strong id="hero-matches">--</strong> held-out matches</span>
+          <span><strong id="hero-players">--</strong> players covered</span>
+        </div>
       </div>
     </section>
 
@@ -98,7 +65,7 @@
       <div class="section-heading">
         <p class="eyebrow">Interactive prediction book</p>
         <h2>Compare model calls match by match.</h2>
-        <p>Search the held-out ATP demo season. Bars now show the probability assigned to each model's selected winner.</p>
+        <p>Search the held-out ATP demo season. Bars show the probability assigned to each model's selected winner.</p>
       </div>
 
       <div class="lab-controls">
@@ -128,64 +95,8 @@
     </section>
 
     <section class="section benchmarks" id="benchmarks">
-      <div class="section-heading split">
-        <div>
-          <p class="eyebrow">Benchmarks</p>
-          <h2>Three views of the same market.</h2>
-        </div>
-        <p>Short, comparable scorecards. The technical detail stays in the research layer.</p>
-      </div>
+      <h2 class="quiet-title">Model benchmarks</h2>
       <div id="model-cards" class="model-cards" aria-live="polite"></div>
-    </section>
-
-    <section class="section platform" id="platform">
-      <div class="platform-copy">
-        <p class="eyebrow">Future product architecture</p>
-        <h2>Built for more sports and more signals.</h2>
-      </div>
-      <div class="platform-grid">
-        <article>
-          <span>01</span>
-          <h3>Prediction API</h3>
-          <p>Clean JSON feeds for web, dashboards, and downstream products.</p>
-        </article>
-        <article>
-          <span>02</span>
-          <h3>Model operations</h3>
-          <p>Training and inference pipelines stay outside the website layer.</p>
-        </article>
-        <article class="imaged">
-          <img src="assets/network_dark.webp" alt="Live market network visualization" loading="lazy">
-          <div class="imaged-caption">03 / Live graph imagery</div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section research" id="research">
-      <div class="section-heading">
-        <p class="eyebrow">Research foundation</p>
-        <h2>Evidence without over-disclosure.</h2>
-        <p>Selected public-facing results from the ATP study. Deeper methodology can move to protected pages later.</p>
-      </div>
-      <div class="research-points">
-        <article><strong>21,385</strong><span>ATP singles matches</span></article>
-        <article><strong>389</strong><span>players in study</span></article>
-        <article><strong>2016-2025</strong><span>data window</span></article>
-      </div>
-      <div class="figure-grid">
-        <figure>
-          <img src="assets/test_win_rate_radar_style2.webp" alt="Model win-rate comparison">
-          <figcaption>Out-of-sample win-rate benchmark.</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/test_brier_score_radar_style2.webp" alt="Probability calibration comparison">
-          <figcaption>Probability calibration benchmark.</figcaption>
-        </figure>
-        <figure class="wide light">
-          <img src="assets/timeline_deep_grid_2x3.webp" alt="Estimated player strength trajectories, 2016-2025" loading="lazy">
-          <figcaption>Estimated player strengths over time: DHR tracks the generational shift from the Big Three to the current leaders.</figcaption>
-        </figure>
-      </div>
     </section>
   </main>
 

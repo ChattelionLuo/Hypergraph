@@ -990,34 +990,39 @@ select:focus {
 
 /* tennis page: low-profile overrides */
 .tennis-page .hero {
+  display: block;
   min-height: auto;
-  padding-top: clamp(48px, 6vw, 76px);
-  padding-bottom: clamp(48px, 6vw, 76px);
+  padding-top: clamp(56px, 7vw, 88px);
+  padding-bottom: clamp(32px, 4vw, 48px);
+  background: none;
 }
 
 .tennis-page .hero h1 {
-  max-width: 620px;
-  font-size: clamp(32px, 4.2vw, 54px);
+  max-width: 640px;
+  font-size: clamp(30px, 3.8vw, 48px);
 }
 
-.tennis-page .hero-metrics article {
-  padding: 18px 22px;
-  box-shadow: none;
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 40px;
+  margin-top: 34px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.tennis-page .hero-metrics span {
-  font-size: clamp(26px, 2.6vw, 38px);
-  letter-spacing: -0.05em;
+.hero-stats strong {
+  margin-right: 8px;
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
 }
-
-.tennis-page .feature-band h2,
-.tennis-page .platform h2 {
-  max-width: 460px;
-  font-size: clamp(23px, 2.6vw, 34px);
-}
-
-.tennis-page .brief-grid article { min-height: 150px; }
-.tennis-page .platform-grid article { min-height: 200px; }
 
 /* ---------- tennis: benchmarks ---------- */
 
@@ -1568,7 +1573,8 @@ code {
 /* ---------- research page: artwork + publications ---------- */
 
 /* Wolfram-style artwork stepped into the page background */
-.research-page::before {
+.research-page::before,
+.tennis-page::before {
   position: fixed;
   inset: 0;
   z-index: 0;
@@ -1586,7 +1592,10 @@ code {
 
 .research-page .topbar,
 .research-page main,
-.research-page .site-footer {
+.research-page .site-footer,
+.tennis-page .topbar,
+.tennis-page main,
+.tennis-page .site-footer {
   position: relative;
   z-index: 1;
 }
