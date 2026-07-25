@@ -8,18 +8,18 @@ const MODEL_COLORS = {
 
 const MODEL_COPY = {
   DHR: {
-    title: "Flagship signal",
-    short: "DHR",
+    title: "Adagietto",
+    short: "Adagietto",
     copy: "Highest-performing signal in the demo window.",
   },
   PlusDC: {
-    title: "Linear benchmark",
-    short: "PlusDC",
+    title: "Largo",
+    short: "Largo",
     copy: "Context-aware benchmark with a transparent linear form.",
   },
   BT: {
-    title: "Classical baseline",
-    short: "BT",
+    title: "Lento",
+    short: "Lento",
     copy: "Player-strength benchmark used as the reference point.",
   },
 };
@@ -69,13 +69,11 @@ function renderModelCards(data) {
             <h3>${meta.title}</h3>
             <p>${meta.copy}</p>
           </div>
-          <span class="rank-badge">${meta.short}</span>
+          <span class="rank-badge">${model}</span>
         </header>
         <div class="metric-stack">
           ${metricRow("Accuracy", m.accuracy, pct(m.accuracy))}
-          ${metricRow("Brier", 1 - m.brier, m.brier.toFixed(3))}
-          ${metricRow("Log loss", 1 - Math.min(m.log_loss, 1), m.log_loss.toFixed(3))}
-          ${metricRow("Conviction", m.average_confidence, pct(m.average_confidence))}
+          ${metricRow("Calibration", 1 - m.brier, pct(1 - m.brier))}
         </div>
         <p class="match-note">Rank ${idx + 1} across ${num(m.matches)} evaluated matches.</p>
       </article>`;
