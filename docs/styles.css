@@ -1464,90 +1464,104 @@ code {
 
 /* ---------- research page: artwork + publications ---------- */
 
-.research-hero {
-  position: relative;
-  overflow: hidden;
-}
-
-.research-hero::before {
-  position: absolute;
-  top: -12%;
-  right: -14%;
-  width: 72%;
-  height: 124%;
+/* Wolfram-style artwork stepped into the page background */
+.research-page::before {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
   content: "";
-  background: url("assets/WolframPhysicsProject-0001-large.webp") right center / contain no-repeat;
-  opacity: 0.16;
+  background: url("assets/WolframPhysicsProject-0001-large.webp") no-repeat right -14% center / min(1150px, 88vw) auto;
+  opacity: 0.12;
   pointer-events: none;
 }
 
-.research-hero > * {
+.research-page .topbar,
+.research-page main,
+.research-page .site-footer {
   position: relative;
   z-index: 1;
 }
 
+.quiet-title {
+  margin: 0 0 22px;
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
 .pub-list {
   display: grid;
-  gap: 18px;
+  border-bottom: 1px solid var(--line);
 }
 
 .pub-card {
   display: grid;
-  grid-template-columns: 132px minmax(0, 1fr);
-  gap: 26px;
-  align-items: start;
-  padding: 24px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
-}
-
-.pub-card:hover {
-  border-color: rgba(183, 131, 45, 0.55);
-  box-shadow: var(--shadow-soft);
-  transform: translateY(-2px);
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
 }
 
 .pub-thumb {
   display: block;
-  width: 132px;
-  margin-top: 4px;
+  width: 96px;
   border: 1px solid var(--line);
+  box-shadow: 0 6px 18px rgba(24, 18, 12, 0.08);
+  transition: transform 180ms ease;
 }
 
-.pub-info h3 {
-  margin: 0 0 10px;
+.pub-card:hover .pub-thumb { transform: translateY(-2px); }
+
+.pub-title {
   color: var(--black);
   font-family: var(--serif);
-  font-size: clamp(20px, 2vw, 25px);
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-size: clamp(19px, 2vw, 24px);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
   transition: color 160ms ease;
 }
 
-.pub-card:hover .pub-info h3 { color: var(--gold-dark); }
-
-.pub-authors {
-  margin: 0 0 4px;
-  color: var(--body);
-  font-size: 14.5px;
+.pub-title::after {
+  content: " \00BB";
+  color: var(--gold);
 }
 
-.pub-venue {
-  margin: 0 0 14px;
+.pub-card:hover .pub-title { color: var(--gold-dark); }
+
+/* gallery artwork figures */
+.art-band {
+  margin: 0;
+  background: transparent;
+  border: 0;
+}
+
+.art-band img {
+  display: block;
+  width: 100%;
+  aspect-ratio: auto;
+}
+
+.art-band figcaption {
+  padding: 10px 0 0;
   color: var(--muted);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  border-top: 0;
+  font-size: 12px;
 }
 
-.pub-link {
-  color: var(--gold-dark);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+.art-credit {
+  display: block;
+  padding-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.card-art {
+  display: block;
+  width: 100%;
+  margin-bottom: 22px;
+  border: 1px solid var(--line);
 }
 
 /* ---------- responsive ---------- */
@@ -1623,12 +1637,12 @@ code {
   .forecast-row { grid-template-columns: 1fr; }
 
   .pub-card {
-    grid-template-columns: 92px 1fr;
-    gap: 16px;
-    padding: 18px;
+    grid-template-columns: 72px 1fr;
+    gap: 18px;
+    padding: 18px 0;
   }
 
-  .pub-thumb { width: 92px; }
+  .pub-thumb { width: 72px; }
 
   .forecast-row { gap: 6px; }
 
