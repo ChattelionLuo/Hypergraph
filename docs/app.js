@@ -10,17 +10,17 @@ const MODEL_COPY = {
   DHR: {
     title: "Adagietto",
     short: "Adagietto",
-    copy: "Highest-performing signal in the demo window.",
+    copy: "Highest-performing signal.",
   },
   PlusDC: {
     title: "Largo",
     short: "Largo",
-    copy: "Context-aware benchmark with a transparent linear form.",
+    copy: "Context-aware benchmark.",
   },
   BT: {
     title: "Lento",
     short: "Lento",
-    copy: "Player-strength benchmark used as the reference point.",
+    copy: "The reference point.",
   },
 };
 
